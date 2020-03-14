@@ -9,11 +9,11 @@ public class AlertButton: UIButton {
     ///     - color: (UIColor) The background color of the button.
     ///     - cornerRadius: (CGFloat) The corner radius of the button.
     ///     - handler: (escaping ButtonClosure) The action to take when the button is tapped.
-    convenience init(title: String, color: UIColor, cornerRadius: CGFloat, handler: @escaping ButtonClosure) {
+    convenience init(title: String, color: UIColor, cornerRadius: CGFloat? = 0, handler: @escaping ButtonClosure) {
         self.init(frame: .zero)
         setupTitle(title)
         backgroundColor = color
-        addShadow(withRadius: cornerRadius)
+        addCornerRadius(cornerRadius ?? 0)
         targetClosure = handler
         addTargets()
     }
@@ -56,19 +56,12 @@ public class AlertButton: UIButton {
         setTitle(title, for: .normal)
         setTitleColor(UIColor.white.withAlphaComponent(0.50), for: .highlighted)
         setTitleColor(.white, for: .normal)
-        setTitleShadowColor(UIColor.lightGray, for: .normal)
-        titleLabel?.shadowOffset = CGSize(width: 1, height: 1)
     }
     
     /// Adds shadow and a corner radius to the button.
-    private func addShadow(withRadius radius: CGFloat) {
+    private func addCornerRadius(_ radius: CGFloat) {
         layer.cornerRadius = radius
         clipsToBounds = true
-        layer.masksToBounds = false
-        layer.shadowRadius = 2
-        layer.shadowOpacity = 0.6
-        layer.shadowOffset = CGSize(width: 1, height: 1)
-        layer.shadowColor = UIColor.black.cgColor
     }
     
     /// The height constraint placed on the button.

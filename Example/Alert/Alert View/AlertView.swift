@@ -34,7 +34,11 @@ public class AlertView: UIView {
     ///     - subtitle: (String?) The subtitle to set under the title.
     public convenience init(image: UIImage?, title: String?, subtitle: String?) {
         self.init(frame: .zero)
-        self.image = image
+        if image == nil {
+            imageView?.removeFromSuperview()
+        } else {
+            self.image = image
+        }
         self.title = title
         self.subtitle = subtitle
     }
@@ -111,6 +115,7 @@ public class AlertView: UIView {
             titleStackView?.axis = newValue
             if newValue == .vertical {
                 self.titleLabel?.textAlignment = .center
+                self.subtitleLabel?.textAlignment = .center
             }
         }
     }
