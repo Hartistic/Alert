@@ -10,3 +10,19 @@
 <img src="https://img.shields.io/badge/licence-MIT-lightgray.svg" alt="Licence MIT"/>
 </a>
 </p>
+
+## Usage
+
+- New Alert
+
+```swift
+let alert = AlertView(image: nil, title: "New Connection", subtitle: "Add Josh as your friend?")
+let yesButton = AlertButton(title: "Yes", color: .systemGreen, cornerRadius: 20) { button in
+    // Do Yes Button Action.
+}
+let noButton = AlertButton(title: "No", color: .systemRed, cornerRadius: 20) { button in
+    alert.dismiss()
+}
+alert.buttons = [noButton, yesButton]
+alert.present(on: self.view)
+```
