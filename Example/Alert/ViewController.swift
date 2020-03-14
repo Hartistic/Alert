@@ -1,8 +1,8 @@
 import UIKit
 
 class ViewController: UIViewController {
-    private static let title = "Do You Want Pizza?"
-    private static let subtitle = "There are 4 pizzas down the road from us, would you like some."
+    private static let title = "Would you like to continue?"
+    private static let subtitle = "You have unsaved progress.  This progress won't be saved."
     private static let image = #imageLiteral(resourceName: "success")
     private static let buttonOneTitle = "Button One"
     private static let buttonTwoTitle = "Button Two"
@@ -11,28 +11,39 @@ class ViewController: UIViewController {
     
     @IBAction func showVerticalAlert(_ sender: UIButton) {
         let alert = AlertView(image: Self.image, title: Self.title, subtitle: Self.subtitle)
-        let button = AlertButton(title: "Amanda", color: .blue, cornerRadius: 20) { (button) in
+        let yesButton = AlertButton(title: "Yes", color: .systemGreen, cornerRadius: 17) { (button) in
             self.view.backgroundColor = self.view.backgroundColor == .red ? .green : .red
         }
-        let closeButton = AlertButton(title: "Dismiss", color: .red, cornerRadius: 20) { _ in
+        let noButton = AlertButton(title: "No", color: .systemRed, cornerRadius: 17) { _ in
             alert.dismiss()
         }
-        closeButton.height = 90
         alert.buttonLayout = .vertical
         alert.titleLayout = .vertical
-        alert.buttons = [closeButton, button]
+        alert.buttons = [ yesButton, noButton ]
         alert.present(on: self.view)
     }
     
     @IBAction func showHorizontalAlert(_ sender: UIButton) {
         let alert = AlertView(image: Self.image, title: Self.title, subtitle: Self.subtitle)
-        let button = AlertButton(title: "Amanda", color: .blue, cornerRadius: 20) { (button) in
+        let button = AlertButton(title: "Yes", color: .systemGreen, cornerRadius: 17) { (button) in
             self.view.backgroundColor = self.view.backgroundColor == .red ? .green : .red
         }
-        let closeButton = AlertButton(title: "Dismiss", color: .red, cornerRadius: 20) { _ in
+        let closeButton = AlertButton(title: "No", color: .systemRed, cornerRadius: 17) { _ in
             alert.dismiss()
         }
         alert.buttons = [closeButton, button]
+        alert.present(on: self.view)
+    }
+    
+    @IBAction func showSimpleAlert(_ sender: UIButton) {
+        let alert = AlertView(image: nil, title: "New Connection", subtitle: "Add Josh as your friend?")
+        let yesButton = AlertButton(title: "Yes", color: .systemGreen, cornerRadius: 20) { button in
+            // Do Yes Button Action.
+        }
+        let noButton = AlertButton(title: "No", color: .systemRed, cornerRadius: 20) { button in
+            alert.dismiss()
+        }
+        alert.buttons = [noButton, yesButton]
         alert.present(on: self.view)
     }
     
