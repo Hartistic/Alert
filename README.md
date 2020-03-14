@@ -11,6 +11,13 @@
 </a>
 </p>
 
+# Alert
+
+Alert is a customizable alert that acts like the native UIAlertController.  
+Alert's layout, styling, and sizing is easy to change.
+The main goal of Alert is to eventually create an alert queue, that instead of canceling
+queued alerts (like UIAlertController does) will show the next one when the first alert is dismissed.
+
 ## Usage
 
 - New Alert
