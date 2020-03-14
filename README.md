@@ -26,3 +26,9 @@ let noButton = AlertButton(title: "No", color: .systemRed, cornerRadius: 20) { b
 alert.buttons = [noButton, yesButton]
 alert.present(on: self.view)
 ```
+
+<div align = "center">
+<img src="Assets/simple.png" width="200" />
+<img src="Assets/vertical.png" width="200" />
+<img src="Assets/horizontal.png" width="200" />
+</div>
