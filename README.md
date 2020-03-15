@@ -62,18 +62,26 @@ alert.setButton(height: 40, cornerRadius: 20)
 alert.present(on: self.view)
 ```
 
-- Simple Alert + Multiple Buttons + Rounded + Vertical Buttons:
+- Vertical Buttons:
 
 ```swift
-let alert = AlertView(image: nil, title: "Error Occurred", subtitle: "Image failed to download")
-let yesButton = AlertButton.yes { _ in
-    // Do something when Yes is tapped
-}
-let noButton = AlertButton.no { _ in
-    alert.dismiss()
-}
 alert.buttonLayout = .vertical
-alert.buttons = [noButton, yesButton]
-alert.setButton(height: 40, cornerRadius: 20)
-alert.present(on: self.view)
+```
+
+- Change Vibrancy Background Color:
+
+```swift
+alert.vibrancyColor = .red
+```
+
+- Title & Subtitle Font:
+```swift
+alert.titleFont = UIFont.systemFont(ofSize: 40, weight: .bold)
+alert.subtitleFont = UIFont.systemFont(ofSize: 20, weight: .bold)
+```
+
+- Title & Subtitle Color:
+```swift
+alert.titleColor = .blue
+alert.subtitleColor = .green
 ```
