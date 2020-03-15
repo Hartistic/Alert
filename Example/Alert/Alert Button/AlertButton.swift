@@ -13,7 +13,7 @@ public class AlertButton: UIButton {
         self.init(frame: .zero)
         setupTitle(title)
         backgroundColor = color
-        addCornerRadius(cornerRadius ?? 0)
+        self.cornerRadius = cornerRadius ?? 0
         targetClosure = handler
         addTargets()
     }
@@ -58,10 +58,22 @@ public class AlertButton: UIButton {
         setTitleColor(.white, for: .normal)
     }
     
+    /// Sets the height and corner radius of the button.
+    /// - Parameters:
+    ///     - height: (CGFloat) The desired height of the button.
+    ///     - cornerRadius: (CGFloat) The corner radius of the button.
+    public func set(height: CGFloat, cornerRadius: CGFloat) {
+        self.height = height
+        self.cornerRadius = cornerRadius
+    }
+    
     /// Adds shadow and a corner radius to the button.
-    private func addCornerRadius(_ radius: CGFloat) {
-        layer.cornerRadius = radius
-        clipsToBounds = true
+    public var cornerRadius: CGFloat {
+        get { layer.cornerRadius }
+        set {
+            layer.cornerRadius = newValue
+            clipsToBounds = true
+        }
     }
     
     /// The height constraint placed on the button.

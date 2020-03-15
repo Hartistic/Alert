@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		507E27B6241C714E009B8A92 /* AlertButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507E27B5241C714E009B8A92 /* AlertButton.swift */; };
 		507E27B8241C8EFB009B8A92 /* AlertActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507E27B7241C8EFB009B8A92 /* AlertActionButton.swift */; };
+		507E27BC241DAAD1009B8A92 /* AlertButtonTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507E27BB241DAAD1009B8A92 /* AlertButtonTypes.swift */; };
 		50BF9CF5241B163900ED336B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BF9CF4241B163900ED336B /* AppDelegate.swift */; };
 		50BF9CF7241B163900ED336B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BF9CF6241B163900ED336B /* SceneDelegate.swift */; };
 		50BF9CF9241B163900ED336B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BF9CF8241B163900ED336B /* ViewController.swift */; };
@@ -24,6 +25,7 @@
 /* Begin PBXFileReference section */
 		507E27B5241C714E009B8A92 /* AlertButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertButton.swift; sourceTree = "<group>"; };
 		507E27B7241C8EFB009B8A92 /* AlertActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertActionButton.swift; sourceTree = "<group>"; };
+		507E27BB241DAAD1009B8A92 /* AlertButtonTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertButtonTypes.swift; sourceTree = "<group>"; };
 		50BF9CF1241B163900ED336B /* Alert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Alert.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50BF9CF4241B163900ED336B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		50BF9CF6241B163900ED336B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +55,7 @@
 			isa = PBXGroup;
 			children = (
 				507E27B5241C714E009B8A92 /* AlertButton.swift */,
+				507E27BB241DAAD1009B8A92 /* AlertButtonTypes.swift */,
 				507E27B7241C8EFB009B8A92 /* AlertActionButton.swift */,
 			);
 			path = "Alert Button";
@@ -176,6 +179,7 @@
 				507E27B6241C714E009B8A92 /* AlertButton.swift in Sources */,
 				50BF9D11241B336700ED336B /* Constraints.swift in Sources */,
 				50BF9D0B241B16C800ED336B /* AlertView.swift in Sources */,
+				507E27BC241DAAD1009B8A92 /* AlertButtonTypes.swift in Sources */,
 				50BF9CF9241B163900ED336B /* ViewController.swift in Sources */,
 				507E27B8241C8EFB009B8A92 /* AlertActionButton.swift in Sources */,
 				50BF9CF5241B163900ED336B /* AppDelegate.swift in Sources */,
