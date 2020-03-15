@@ -47,6 +47,16 @@ class ViewController: UIViewController {
         alert.present(on: self.view)
     }
     
+    @IBAction func showSimpleAlert2(_ sender: UIButton) {
+        let alert = AlertView(image: nil, title: "Error Occurred", subtitle: "Image failed to download")
+        let dismissButton = AlertButton.dismiss { _ in
+            alert.dismiss()
+        }
+        alert.buttons = [dismissButton]
+        alert.setButton(height: 40, cornerRadius: 20)
+        alert.present(on: self.view)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
