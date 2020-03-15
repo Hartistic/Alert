@@ -35,7 +35,5 @@ alert.present(on: self.view)
 ```
 
 <div align = "center">
-<img src="Assets/simple.png" width="200" />
-<img src="Assets/vertical.png" width="200" />
-<img src="Assets/horizontal.png" width="200" />
+<img src="Assets/example.png" width="1000" />
 </div>
