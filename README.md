@@ -18,22 +18,62 @@ Alert's layout, styling, and sizing is easy to change.
 The main goal of Alert is to eventually create an alert queue, that instead of canceling
 queued alerts (like UIAlertController does) will show the next one when the first alert is dismissed.
 
-## Usage
-
-- New Alert
-
-```swift
-let alert = AlertView(image: nil, title: "New Connection", subtitle: "Add Josh as your friend?")
-let yesButton = AlertButton(title: "Yes", color: .systemGreen, cornerRadius: 20) { button in
-    // Do Yes Button Action.
-}
-let noButton = AlertButton(title: "No", color: .systemRed, cornerRadius: 20) { button in
-    alert.dismiss()
-}
-alert.buttons = [noButton, yesButton]
-alert.present(on: self.view)
-```
-
 <div align = "center">
 <img src="Assets/example.png" width="1000" />
 </div>
+
+## Usage
+
+- Simple Alert
+
+```swift
+let alert = AlertView(image: nil, title: "Error Occurred", subtitle: "Image failed to download")
+let dismissButton = AlertButton.dismiss { _ in
+    alert.dismiss()
+}
+alert.buttons = [dismissButton]
+alert.present(on: self.view)
+```
+
+- Simple Alert + Rounded Button:
+
+```swift
+let alert = AlertView(image: nil, title: "Error Occurred", subtitle: "Image failed to download")
+let dismissButton = AlertButton.dismiss { _ in
+    alert.dismiss()
+}
+alert.buttons = [dismissButton]
+alert.setButton(height: 40, cornerRadius: 20)
+alert.present(on: self.view)
+```
+
+- Simple Alert + Multiple Buttons + Rounded:
+
+```swift
+let alert = AlertView(image: nil, title: "Error Occurred", subtitle: "Image failed to download")
+let yesButton = AlertButton.yes { _ in
+    // Do something when Yes is tapped
+}
+let noButton = AlertButton.no { _ in
+    alert.dismiss()
+}
+alert.buttons = [noButton, yesButton]
+alert.setButton(height: 40, cornerRadius: 20)
+alert.present(on: self.view)
+```
+
+- Simple Alert + Multiple Buttons + Rounded + Vertical Buttons:
+
+```swift
+let alert = AlertView(image: nil, title: "Error Occurred", subtitle: "Image failed to download")
+let yesButton = AlertButton.yes { _ in
+    // Do something when Yes is tapped
+}
+let noButton = AlertButton.no { _ in
+    alert.dismiss()
+}
+alert.buttonLayout = .vertical
+alert.buttons = [noButton, yesButton]
+alert.setButton(height: 40, cornerRadius: 20)
+alert.present(on: self.view)
+```
