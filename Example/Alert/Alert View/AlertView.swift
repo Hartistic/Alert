@@ -12,10 +12,19 @@ public class AlertView: UIView {
     @IBOutlet private var vibrancyView: UIVisualEffectView?
     /// The stack view which encases the title stack view, button stack view, title label, subtitle label, imageView, and buttons.
     @IBOutlet private var contentStackView: UIStackView?
-    /// The stack view within the content stack view  which encases the image view and the title label.
-    @IBOutlet private var titleStackView: UIStackView?
+    /// The top constraint of the content stack view.
+    @IBOutlet private var contentStackViewTopConstraint: NSLayoutConstraint?
     /// The stack view within the content stack view which encases the Alert Buttons.
     @IBOutlet private var buttonStackView: UIStackView?
+    /// The label that shows how many alerts are in the queue.
+    @IBOutlet private var queueLabel: UILabel?
+    /// The view that encases the queue label counter.
+    @IBOutlet private var queueView: UIView?
+    
+    /// Standard default spacing:
+    private static let marginSpacing: CGFloat = 30
+
+    // MARK: INITIALIAZERS:
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -36,12 +45,15 @@ public class AlertView: UIView {
         self.init(frame: .zero)
         if image == nil {
             imageView?.removeFromSuperview()
+            contentStackViewTopConstraint?.constant = Self.marginSpacing
         } else {
             self.image = image
         }
         self.title = title
         self.subtitle = subtitle
     }
+    
+    // MARK: PUBLIC FUNCTIONS:
     
     /// Set an image, title, and subtitle to your alert.
     /// - Parameters:
@@ -88,8 +100,24 @@ public class AlertView: UIView {
         }
     }
     
+    public func setButton(height: CGFloat, cornerRadius: CGFloat) {
+        guard let buttons = buttons else { return }
+        for button in buttons {
+            button.set(height: height, cornerRadius: cornerRadius)
+        }
+    }
+    
+    // MARK: INTERNAL VARIABLES:
+    
+    /// Sets the queue label to the queue count.  If zero, hides the view.
+    internal var queueCount: Int {
+        get { Int(queueLabel?.text ?? "0") ?? 0 }
+        set { queueLabel?.text = String(newValue)
+            queueView?.isHidden = newValue <= 0 }
+    }
+    
     /// The buttons to include within the alert. Type: [AlertButton]
-    public var buttons: [AlertButton]? {
+    internal var buttons: [AlertButton]? {
         get { buttonStackView?.arrangedSubviews as? [AlertButton] }
         set {
             guard let newValue = newValue, !newValue.isEmpty else { return }
@@ -100,24 +128,9 @@ public class AlertView: UIView {
     /// The type of layout for your Alert Buttons:
     /// - Vertical: Up and down.
     /// - Horizontal: Side to Side.
-    public var buttonLayout: NSLayoutConstraint.Axis {
+    internal var buttonLayout: NSLayoutConstraint.Axis {
         get { buttonStackView?.axis ?? .horizontal }
         set { buttonStackView?.axis = newValue }
-    }
-    
-    /// The type of layout for the title, which includes an imageview and a label.
-    /// The type of layout for your Alert Buttons:
-    /// - Vertical: Up and down. Will center the title text under the image.
-    /// - Horizontal: Side to Side.
-    public var titleLayout: NSLayoutConstraint.Axis {
-        get { titleStackView?.axis ?? .horizontal }
-        set {
-            titleStackView?.axis = newValue
-            if newValue == .vertical {
-                self.titleLabel?.textAlignment = .center
-                self.subtitleLabel?.textAlignment = .center
-            }
-        }
     }
     
     /// The title text for the Alert.
@@ -168,7 +181,7 @@ public class AlertView: UIView {
         set { vibrancyView?.backgroundColor = newValue}
     }
     
-    // MARK: HELPERS:
+    // MARK: PRIVATE HELPERS:
     
     /// Adds the Alertview to the superview with constraints.
     private func addToSubview(_ view: UIView) {
