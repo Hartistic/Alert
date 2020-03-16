@@ -7,13 +7,13 @@ public class Alert {
     /// Prevent someone from creating another instance:
     private init() {}
     private static let alertObserverId = "Alert Manager Observer"
-    
+
     /// Observer that detects additions and removals from the alert queue:
     public var alertObserver = Observer<Bool>(value: false)
     /// Alert controllers that are pending to be shown:
     public private(set) var pendingAlertViews: [AlertViewController] = []
     private var currentViewController: UIViewController?
-    
+
     /// Adds an alert to the alert view queue:
     /// - Parameter alertView: (AlertView) The alert view to add to the queue.
     public func addAlert(_ alertView: AlertViewController, on viewController: UIViewController) {
@@ -23,7 +23,7 @@ public class Alert {
              self.alertObserver.post(value: true)
          }
     }
-    
+
     /// Tells the alert to dismiss itself and to call the next alert to show.
     /// - Parameter alertController: (UIAlertViewController) The alert view controller to dismiss.
     public func dismissAlert() {
@@ -34,22 +34,22 @@ public class Alert {
         alertObserver.bind(id: Self.alertObserverId) { _, queueHasChanged in
             // Nothing to add:
             if queueHasChanged, self.pendingCount <= 0 { return }
-            
+
             if self.currentViewController?.children.count == 1 {
                 return
             }
-            
+
             // Add a new alert controller to the very top view controller:
             guard self.pendingCount > 0, let newAlert = self.topAlert else { return }
             self.showAlert(newAlert)
         }
     }
-    
+
     /// The current count of pending alert views.
     public var pendingCount: Int {
         self.pendingAlertViews.count
     }
-    
+
     /// True if the view has alert views in the queue waiting to be shown.
     public var hasPendingAlerts: Bool {
         pendingCount == 0
@@ -70,8 +70,7 @@ public class Alert {
             self.addAlert(alert, on: viewController)
         }
     }
-    
-    
+
     /// - Note: Shows an alert to the user.
     /// - Parameter alert: (AlertView) The alert controller that will be show to the user.
     /// - Note: Runs on the main thread.
@@ -88,14 +87,14 @@ public class Alert {
                 })
                 return
             }
-            
+
             if self.hasPendingAlerts {
                 alertView.queueCount = self.pendingCount
             }
             currentViewController.present(alertView, animated: true, completion: nil)
         }
     }
-    
+
     /// - Returns: (AlertView?) The first alert controller in line to be shown next, grabbing the alert from pendingAlertViews index 0.
     private var topAlert: AlertViewController? {
         guard let topAlert = pendingAlertViews.first else { return nil }

@@ -5,7 +5,7 @@ class ViewController: UIViewController {
     private static let subtitle = "Would you like to continue and submit the photo later?"
     private static let successImage = #imageLiteral(resourceName: "Checkmark")
     private static let errorImage = #imageLiteral(resourceName: "Error")
-    
+
     @IBAction func showVerticalAlert(_ sender: UIButton) {
         let alert = AlertViewController(image: Self.successImage, title: Self.title, subtitle: Self.subtitle)
         let yesButton = AlertButton.yes { _ in
@@ -23,7 +23,7 @@ class ViewController: UIViewController {
         alert.backgroundColor = UIColor.white.withAlphaComponent(0.60)
         Alert.shared.addAlert(alert, on: self)
     }
-    
+
     @IBAction func showHorizontalAlert(_ sender: UIButton) {
         let alert = AlertViewController(image: Self.errorImage, title: Self.title, subtitle: Self.subtitle)
         let yesButton = AlertButton.yes { _ in
@@ -40,7 +40,7 @@ class ViewController: UIViewController {
         alert.cornerRadius = 20
         Alert.shared.addAlert(alert, on: self)
     }
-    
+
     @IBAction func showSimpleAlert(_ sender: UIButton) {
         let alert = AlertViewController(image: nil, title: "New Connection", subtitle: "Add Josh as your friend?")
         let yesButton = AlertButton.yes { _ in
@@ -52,7 +52,7 @@ class ViewController: UIViewController {
         alert.buttons = [noButton, yesButton]
         Alert.shared.addAlert(alert, on: self)
     }
-    
+
     @IBAction func showSimpleAlert2(_ sender: UIButton) {
         let alert = AlertViewController(image: nil, title: "Error Occurred", subtitle: "Image failed to download")
         let dismissButton = AlertButton.dismiss { _ in
@@ -63,17 +63,15 @@ class ViewController: UIViewController {
         alert.cornerRadius = 20
         Alert.shared.addAlert(alert, on: self)
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-    }
-    
-    
-}
 
+    }
+
+}
