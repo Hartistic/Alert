@@ -21,22 +21,22 @@ public class AlertView: UIView {
     @IBOutlet private var queueLabel: UILabel?
     /// The view that encases the queue label counter.
     @IBOutlet private var queueView: UIView?
-    
+
     /// Standard default spacing:
     private static let marginSpacing: CGFloat = 30
 
     // MARK: INITIALIAZERS:
-    
+
     public override init(frame: CGRect) {
         super.init(frame: frame)
         fromNib()
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         fromNib()
     }
-    
+
     /// Convenience Initializer.  Set an image, title, and subtitle to your alert.
     /// - Parameters:
     ///     - image: (UIImage?) The image that should show next to the title.
@@ -53,9 +53,9 @@ public class AlertView: UIView {
         self.title = title
         self.subtitle = subtitle
     }
-    
+
     // MARK: PUBLIC FUNCTIONS:
-    
+
     /// Set an image, title, and subtitle to your alert.
     /// - Parameters:
     ///     - image: (UIImage?) The image that should show next to the title.
@@ -71,23 +71,23 @@ public class AlertView: UIView {
         self.titleLabel?.text = title
         self.subtitleLabel?.text = subtitle
     }
-    
+
     public func setButton(height: CGFloat, cornerRadius: CGFloat) {
         guard let buttons = buttons else { return }
         for button in buttons {
             button.set(height: height, cornerRadius: cornerRadius)
         }
     }
-    
+
     // MARK: INTERNAL VARIABLES:
-    
+
     /// Sets the queue label to the queue count.  If zero, hides the view.
     internal var queueCount: Int {
         get { Int(queueLabel?.text ?? "0") ?? 0 }
         set { queueLabel?.text = String(newValue)
             queueView?.isHidden = newValue <= 0 }
     }
-    
+
     /// The buttons to include within the alert. Type: [AlertButton]
     internal var buttons: [AlertButton]? {
         get { buttonStackView?.arrangedSubviews as? [AlertButton] }
@@ -96,7 +96,7 @@ public class AlertView: UIView {
             for value in newValue { buttonStackView?.addArrangedSubview(value) }
         }
     }
-    
+
     /// The type of layout for your Alert Buttons:
     /// - Vertical: Up and down.
     /// - Horizontal: Side to Side.
@@ -104,57 +104,57 @@ public class AlertView: UIView {
         get { buttonStackView?.axis ?? .horizontal }
         set { buttonStackView?.axis = newValue }
     }
-    
+
     /// The title text for the Alert.
     internal var title: String? {
         get { return titleLabel?.text }
         set { titleLabel?.text = newValue}
     }
-    
+
     /// The title text color for the Alert.
     internal var titleColor: UIColor? {
         get { return titleLabel?.textColor }
         set { titleLabel?.textColor = newValue }
     }
-    
+
     /// The title text font for the Alert.
     internal var titleFont: UIFont? {
         get { return titleLabel?.font }
         set { titleLabel?.font = newValue }
     }
-    
+
     /// The subtitle text for the Alert.
     internal var subtitle: String? {
         get { return subtitleLabel?.text }
         set { subtitleLabel?.text = newValue}
     }
-    
+
     /// The subtitle text color for the Alert.
     internal var subtitleColor: UIColor? {
         get { return subtitleLabel?.textColor }
         set { subtitleLabel?.textColor = newValue }
     }
-    
+
     /// The subtitle text font for the Alert.
     internal var subtitleFont: UIFont? {
         get { return subtitleLabel?.font }
         set { subtitleLabel?.font = newValue }
     }
-    
+
     /// The image to set next to the title.
     internal var image: UIImage? {
         get { return imageView?.image }
         set { imageView?.image = newValue}
     }
-    
+
     /// The background color of the UIVisualEffectView.
     internal var vibrancyColor: UIColor? {
         get { return vibrancyView?.backgroundColor }
         set { vibrancyView?.backgroundColor = newValue}
     }
-    
+
     // MARK: PRIVATE HELPERS:
-    
+
     /// Adds the Alertview to the superview with constraints.
     private func addToSubview(_ view: UIView) {
         translatesAutoresizingMaskIntoConstraints = false
@@ -165,5 +165,3 @@ public class AlertView: UIView {
         self.constrainCenterX()
     }
 }
-
-

@@ -2,7 +2,7 @@ import UIKit
 
 /// The alert button that is placed within an AlertView so that the user can take an action.
 public class AlertButton: UIButton {
-    
+
     /// Convenience Initializer.  Set the title, background color and corner radius of the button.
     /// - Parameters:
     ///     - title: (String) The title text of the button.
@@ -17,7 +17,7 @@ public class AlertButton: UIButton {
         targetClosure = handler
         addTargets()
     }
-    
+
     /// The height of the button.
     public var height: CGFloat {
         get {
@@ -34,9 +34,9 @@ public class AlertButton: UIButton {
             }
         }
     }
-    
+
     // MARK: Helpers:
-    
+
     /// Adds the height constraint to the button so that it's height can be layed out.
     private func addHeightConstraint(value: CGFloat) {
         buttonHeightConstraint = NSLayoutConstraint(item: self, attribute: .height,
@@ -45,19 +45,19 @@ public class AlertButton: UIButton {
                                                     constant: value)
         buttonHeightConstraint?.isActive = true
     }
-    
+
     private func addTargets() {
         addTarget(self, action: #selector(AlertButton.closureAction), for: .touchUpInside)
         addTarget(self, action: #selector(AlertButton.touchDownAnimation), for: .touchDown)
     }
-    
+
     /// Sets the title of the button along with it's states and adds shadow.
     private func setupTitle(_ title: String) {
         setTitle(title, for: .normal)
         setTitleColor(UIColor.white.withAlphaComponent(0.50), for: .highlighted)
         setTitleColor(.white, for: .normal)
     }
-    
+
     /// Sets the height and corner radius of the button.
     /// - Parameters:
     ///     - height: (CGFloat) The desired height of the button.
@@ -66,7 +66,7 @@ public class AlertButton: UIButton {
         self.height = height
         self.cornerRadius = cornerRadius
     }
-    
+
     /// Adds shadow and a corner radius to the button.
     public var cornerRadius: CGFloat {
         get { layer.cornerRadius }
@@ -75,8 +75,7 @@ public class AlertButton: UIButton {
             clipsToBounds = true
         }
     }
-    
+
     /// The height constraint placed on the button.
     private var buttonHeightConstraint: NSLayoutConstraint?
 }
-

@@ -15,15 +15,15 @@ public class AlertViewController: UIViewController {
     internal var titleColor: UIColor = .white
     internal var subtitleColor: UIColor = .white
     internal var backgroundColor: UIColor = .clear
-    
+
     init() {
         super.init(nibName: nil, bundle: nil)
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     convenience init(image: UIImage?, title: String?, subtitle: String?) {
         self.init()
         self.modalPresentationStyle = .overFullScreen
@@ -31,7 +31,7 @@ public class AlertViewController: UIViewController {
         self.subtitleText = subtitle
         self.image = image
     }
-    
+
     public override func viewDidLoad() {
         super.viewDidLoad()
         isModalInPresentation = true
@@ -50,7 +50,7 @@ public class AlertViewController: UIViewController {
         alertView.constrainCenterY()
         self.view.backgroundColor = backgroundColor
     }
-    
+
     public func dismiss() {
         dismiss(animated: true, completion: nil)
     }
