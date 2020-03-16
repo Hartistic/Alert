@@ -7,9 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5068A95B241F162700971673 /* AlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5068A95A241F162700971673 /* AlertViewController.xib */; };
+		5068A95D241F169000971673 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5068A95C241F169000971673 /* AlertViewController.swift */; };
 		507E27B6241C714E009B8A92 /* AlertButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507E27B5241C714E009B8A92 /* AlertButton.swift */; };
 		507E27B8241C8EFB009B8A92 /* AlertActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507E27B7241C8EFB009B8A92 /* AlertActionButton.swift */; };
 		507E27BC241DAAD1009B8A92 /* AlertButtonTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507E27BB241DAAD1009B8A92 /* AlertButtonTypes.swift */; };
+		507E27C0241E8CF9009B8A92 /* Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507E27BE241E8CF9009B8A92 /* Observer.swift */; };
+		507E27C1241E8CF9009B8A92 /* ObserverProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507E27BF241E8CF9009B8A92 /* ObserverProtocol.swift */; };
 		50BF9CF5241B163900ED336B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BF9CF4241B163900ED336B /* AppDelegate.swift */; };
 		50BF9CF7241B163900ED336B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BF9CF6241B163900ED336B /* SceneDelegate.swift */; };
 		50BF9CF9241B163900ED336B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BF9CF8241B163900ED336B /* ViewController.swift */; };
@@ -23,9 +27,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5068A95A241F162700971673 /* AlertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertViewController.xib; sourceTree = "<group>"; };
+		5068A95C241F169000971673 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 		507E27B5241C714E009B8A92 /* AlertButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertButton.swift; sourceTree = "<group>"; };
 		507E27B7241C8EFB009B8A92 /* AlertActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertActionButton.swift; sourceTree = "<group>"; };
 		507E27BB241DAAD1009B8A92 /* AlertButtonTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertButtonTypes.swift; sourceTree = "<group>"; };
+		507E27BE241E8CF9009B8A92 /* Observer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observer.swift; sourceTree = "<group>"; };
+		507E27BF241E8CF9009B8A92 /* ObserverProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObserverProtocol.swift; sourceTree = "<group>"; };
 		50BF9CF1241B163900ED336B /* Alert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Alert.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50BF9CF4241B163900ED336B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		50BF9CF6241B163900ED336B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,8 +74,19 @@
 			children = (
 				50BF9D0A241B16C800ED336B /* AlertView.swift */,
 				50BF9D0E241B194000ED336B /* AlertView.xib */,
+				5068A95A241F162700971673 /* AlertViewController.xib */,
+				5068A95C241F169000971673 /* AlertViewController.swift */,
 			);
 			path = "Alert View";
+			sourceTree = "<group>";
+		};
+		507E27BD241E8CF9009B8A92 /* Observer */ = {
+			isa = PBXGroup;
+			children = (
+				507E27BE241E8CF9009B8A92 /* Observer.swift */,
+				507E27BF241E8CF9009B8A92 /* ObserverProtocol.swift */,
+			);
+			path = Observer;
 			sourceTree = "<group>";
 		};
 		50BF9CE8241B163900ED336B = {
@@ -92,6 +111,7 @@
 				50BF9D08241B165200ED336B /* Alert.swift */,
 				507E27BA241CA503009B8A92 /* Alert View */,
 				507E27B9241CA4E6009B8A92 /* Alert Button */,
+				507E27BD241E8CF9009B8A92 /* Observer */,
 				50BF9CF4241B163900ED336B /* AppDelegate.swift */,
 				50BF9CF6241B163900ED336B /* SceneDelegate.swift */,
 				50BF9CF8241B163900ED336B /* ViewController.swift */,
@@ -166,6 +186,7 @@
 				50BF9D0F241B194000ED336B /* AlertView.xib in Resources */,
 				50BF9CFE241B163B00ED336B /* Assets.xcassets in Resources */,
 				50BF9CFC241B163900ED336B /* Main.storyboard in Resources */,
+				5068A95B241F162700971673 /* AlertViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,11 +197,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				507E27C1241E8CF9009B8A92 /* ObserverProtocol.swift in Sources */,
 				507E27B6241C714E009B8A92 /* AlertButton.swift in Sources */,
+				507E27C0241E8CF9009B8A92 /* Observer.swift in Sources */,
 				50BF9D11241B336700ED336B /* Constraints.swift in Sources */,
 				50BF9D0B241B16C800ED336B /* AlertView.swift in Sources */,
 				507E27BC241DAAD1009B8A92 /* AlertButtonTypes.swift in Sources */,
 				50BF9CF9241B163900ED336B /* ViewController.swift in Sources */,
+				5068A95D241F169000971673 /* AlertViewController.swift in Sources */,
 				507E27B8241C8EFB009B8A92 /* AlertActionButton.swift in Sources */,
 				50BF9CF5241B163900ED336B /* AppDelegate.swift in Sources */,
 				50BF9D09241B165200ED336B /* Alert.swift in Sources */,

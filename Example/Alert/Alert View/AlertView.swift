@@ -2,6 +2,7 @@ import UIKit
 
 /// The alert view showcases the user interface elements of the alert.  It contains the buttons, labels, stack views, image view.
 public class AlertView: UIView {
+    private static let nibName = "AlertView"
     /// The title at the top of the Alert.
     @IBOutlet private var titleLabel: UILabel?
     /// The subtitle centered in the Alert.
@@ -61,43 +62,14 @@ public class AlertView: UIView {
     ///     -  title: (String?) The title to set at the top of the Alert.
     ///     - subtitle: (String?) The subtitle to set under the title.
     public func set(image: UIImage?, title: String?, subtitle: String?) {
-        self.image = image
-        self.title = title
-        self.subtitle = subtitle
-    }
-    
-    /// Present/Show the alert onto a view.  The view will center itself within the view you designate.
-    /// - Parameters:
-    ///     - view: (UIView) The view that will hold the Alert.
-    ///     - animated: (Bool) Defaults to true.  If false, the alert will not be animated onto the screen.
-    public func present(on view: UIView, animated: Bool = true) {
-        self.alpha = 0
-        addToSubview(view)
-        if animated {
-            self.transform = CGAffineTransform(translationX: 0, y: view.bounds.maxY)
-            UIView.animate(withDuration: 0.65, delay: 0, usingSpringWithDamping: 0.61,
-                           initialSpringVelocity: 0, options: .curveEaseIn, animations: {
-                            self.alpha = 1.0
-                            self.transform = .identity
-                            view.layoutIfNeeded()
-            })
+        if image == nil {
+            imageView?.removeFromSuperview()
+            contentStackViewTopConstraint?.constant = Self.marginSpacing
+        } else {
+            self.image = image
         }
-    }
-    
-    /// Dismiss the alert from a view.  The Alert's superview must be available in order to dismiss.
-    /// - Parameter animated: (Bool) Defaults to true.  If false, the alert will not animate off the screen..
-    public func dismiss(animated: Bool = true) {
-        guard let view = self.superview else { return }
-        if animated {
-            UIView.animate(withDuration: 0.65, delay: 0, usingSpringWithDamping: 0.61,
-                           initialSpringVelocity: 0.2, options: .curveEaseOut, animations: {
-                            self.alpha = 1.0
-                            self.transform = CGAffineTransform(translationX: 0, y: view.bounds.maxY)
-                            view.layoutIfNeeded()
-            }, completion: { _ in
-                self.removeFromSuperview()
-            })
-        }
+        self.titleLabel?.text = title
+        self.subtitleLabel?.text = subtitle
     }
     
     public func setButton(height: CGFloat, cornerRadius: CGFloat) {
