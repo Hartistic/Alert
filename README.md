@@ -32,7 +32,7 @@ let dismissButton = AlertButton.dismiss { _ in
     alert.dismiss()
 }
 alert.buttons = [dismissButton]
-alert.present(on: self.view)
+Alert.shared.addAlert(alert, on: self)
 ```
 
 - Simple Alert + Rounded Button:
@@ -43,8 +43,9 @@ let dismissButton = AlertButton.dismiss { _ in
     alert.dismiss()
 }
 alert.buttons = [dismissButton]
-alert.setButton(height: 40, cornerRadius: 20)
-alert.present(on: self.view)
+alert.buttonHeight = 40
+alert.cornerRadius = 20
+Alert.shared.addAlert(alert, on: self)
 ```
 
 - Simple Alert + Multiple Buttons + Rounded:
@@ -58,8 +59,9 @@ let noButton = AlertButton.no { _ in
     alert.dismiss()
 }
 alert.buttons = [noButton, yesButton]
-alert.setButton(height: 40, cornerRadius: 20)
-alert.present(on: self.view)
+alert.buttonHeight = 40
+alert.cornerRadius = 20
+Alert.shared.addAlert(alert, on: self)
 ```
 
 - Vertical Buttons:
