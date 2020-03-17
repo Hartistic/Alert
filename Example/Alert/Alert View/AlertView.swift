@@ -123,6 +123,12 @@ public class AlertView: UIView {
         set { titleLabel?.font = newValue }
     }
 
+    /// The text alignment for the title label.
+    internal var titleAlignment: NSTextAlignment {
+        get { return titleLabel?.textAlignment ?? .left }
+        set { titleLabel?.textAlignment = newValue }
+    }
+
     /// The subtitle text for the Alert.
     internal var subtitle: String? {
         get { return subtitleLabel?.text }
@@ -139,6 +145,12 @@ public class AlertView: UIView {
     internal var subtitleFont: UIFont? {
         get { return subtitleLabel?.font }
         set { subtitleLabel?.font = newValue }
+    }
+
+    /// The text alignment for the subtitle label.
+    internal var subtitleAlignment: NSTextAlignment {
+        get { return subtitleLabel?.textAlignment ?? .left }
+        set { subtitleLabel?.textAlignment = newValue }
     }
 
     /// The image to set next to the title.

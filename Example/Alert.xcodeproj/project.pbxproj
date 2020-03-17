@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		5068A95B241F162700971673 /* AlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5068A95A241F162700971673 /* AlertViewController.xib */; };
 		5068A95D241F169000971673 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5068A95C241F169000971673 /* AlertViewController.swift */; };
+		5068A95F2420676000971673 /* ExampleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5068A95E2420676000971673 /* ExampleTableViewController.swift */; };
+		5068A96124207BF400971673 /* GradientBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5068A96024207BF400971673 /* GradientBackgroundView.swift */; };
 		507E27B6241C714E009B8A92 /* AlertButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507E27B5241C714E009B8A92 /* AlertButton.swift */; };
 		507E27B8241C8EFB009B8A92 /* AlertActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507E27B7241C8EFB009B8A92 /* AlertActionButton.swift */; };
 		507E27BC241DAAD1009B8A92 /* AlertButtonTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507E27BB241DAAD1009B8A92 /* AlertButtonTypes.swift */; };
@@ -16,7 +18,6 @@
 		507E27C1241E8CF9009B8A92 /* ObserverProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507E27BF241E8CF9009B8A92 /* ObserverProtocol.swift */; };
 		50BF9CF5241B163900ED336B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BF9CF4241B163900ED336B /* AppDelegate.swift */; };
 		50BF9CF7241B163900ED336B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BF9CF6241B163900ED336B /* SceneDelegate.swift */; };
-		50BF9CF9241B163900ED336B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BF9CF8241B163900ED336B /* ViewController.swift */; };
 		50BF9CFC241B163900ED336B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50BF9CFA241B163900ED336B /* Main.storyboard */; };
 		50BF9CFE241B163B00ED336B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50BF9CFD241B163B00ED336B /* Assets.xcassets */; };
 		50BF9D01241B163B00ED336B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50BF9CFF241B163B00ED336B /* LaunchScreen.storyboard */; };
@@ -29,6 +30,8 @@
 /* Begin PBXFileReference section */
 		5068A95A241F162700971673 /* AlertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertViewController.xib; sourceTree = "<group>"; };
 		5068A95C241F169000971673 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
+		5068A95E2420676000971673 /* ExampleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleTableViewController.swift; sourceTree = "<group>"; };
+		5068A96024207BF400971673 /* GradientBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientBackgroundView.swift; sourceTree = "<group>"; };
 		507E27B5241C714E009B8A92 /* AlertButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertButton.swift; sourceTree = "<group>"; };
 		507E27B7241C8EFB009B8A92 /* AlertActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertActionButton.swift; sourceTree = "<group>"; };
 		507E27BB241DAAD1009B8A92 /* AlertButtonTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertButtonTypes.swift; sourceTree = "<group>"; };
@@ -37,7 +40,6 @@
 		50BF9CF1241B163900ED336B /* Alert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Alert.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50BF9CF4241B163900ED336B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		50BF9CF6241B163900ED336B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		50BF9CF8241B163900ED336B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		50BF9CFB241B163900ED336B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		50BF9CFD241B163B00ED336B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		50BF9D00241B163B00ED336B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -114,7 +116,8 @@
 				507E27BD241E8CF9009B8A92 /* Observer */,
 				50BF9CF4241B163900ED336B /* AppDelegate.swift */,
 				50BF9CF6241B163900ED336B /* SceneDelegate.swift */,
-				50BF9CF8241B163900ED336B /* ViewController.swift */,
+				5068A96024207BF400971673 /* GradientBackgroundView.swift */,
+				5068A95E2420676000971673 /* ExampleTableViewController.swift */,
 				50BF9CFA241B163900ED336B /* Main.storyboard */,
 				50BF9CFD241B163B00ED336B /* Assets.xcassets */,
 				50BF9CFF241B163B00ED336B /* LaunchScreen.storyboard */,
@@ -203,11 +206,12 @@
 				50BF9D11241B336700ED336B /* Constraints.swift in Sources */,
 				50BF9D0B241B16C800ED336B /* AlertView.swift in Sources */,
 				507E27BC241DAAD1009B8A92 /* AlertButtonTypes.swift in Sources */,
-				50BF9CF9241B163900ED336B /* ViewController.swift in Sources */,
 				5068A95D241F169000971673 /* AlertViewController.swift in Sources */,
 				507E27B8241C8EFB009B8A92 /* AlertActionButton.swift in Sources */,
 				50BF9CF5241B163900ED336B /* AppDelegate.swift in Sources */,
+				5068A96124207BF400971673 /* GradientBackgroundView.swift in Sources */,
 				50BF9D09241B165200ED336B /* Alert.swift in Sources */,
+				5068A95F2420676000971673 /* ExampleTableViewController.swift in Sources */,
 				50BF9CF7241B163900ED336B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
