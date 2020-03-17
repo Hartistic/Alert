@@ -29,7 +29,7 @@ queued alerts (like UIAlertController does) will show the next one when the firs
 - Simple Alert
 
 ```swift
-let alert = AlertView(image: nil, title: "Error Occurred", subtitle: "Image failed to download")
+let alert = AlertViewController(image: nil, title: "Error Occurred", subtitle: "Image failed to download")
 let dismissButton = AlertButton.dismiss(handler: nil)
 alert.buttons = [dismissButton]
 Alert.shared.addAlert(alert, on: self)
@@ -38,7 +38,7 @@ Alert.shared.addAlert(alert, on: self)
 - Simple Alert + Rounded Button:
 
 ```swift
-let alert = AlertView(image: nil, title: "Error Occurred", subtitle: "Image failed to download")
+let alert = AlertViewController(image: nil, title: "Error Occurred", subtitle: "Image failed to download")
 let dismissButton = AlertButton.dismiss(handler: nil)
 alert.buttons = [dismissButton]
 alert.buttonHeight = 40
@@ -49,7 +49,7 @@ Alert.shared.addAlert(alert, on: self)
 - Simple Alert + Multiple Buttons + Rounded:
 
 ```swift
-let alert = AlertView(image: nil, title: "Error Occurred", subtitle: "Image failed to download")
+let alert = AlertViewController(image: nil, title: "Error Occurred", subtitle: "Image failed to download")
 let yesButton = AlertButton.yes(handler: nil)
 let noButton = AlertButton.no(handler: nil)
 alert.buttons = [noButton, yesButton]
