@@ -30,9 +30,7 @@ queued alerts (like UIAlertController does) will show the next one when the firs
 
 ```swift
 let alert = AlertView(image: nil, title: "Error Occurred", subtitle: "Image failed to download")
-let dismissButton = AlertButton.dismiss { _ in
-    alert.dismiss()
-}
+let dismissButton = AlertButton.dismiss(handler: nil)
 alert.buttons = [dismissButton]
 Alert.shared.addAlert(alert, on: self)
 ```
@@ -41,9 +39,7 @@ Alert.shared.addAlert(alert, on: self)
 
 ```swift
 let alert = AlertView(image: nil, title: "Error Occurred", subtitle: "Image failed to download")
-let dismissButton = AlertButton.dismiss { _ in
-    alert.dismiss()
-}
+let dismissButton = AlertButton.dismiss(handler: nil)
 alert.buttons = [dismissButton]
 alert.buttonHeight = 40
 alert.cornerRadius = 20
@@ -54,12 +50,8 @@ Alert.shared.addAlert(alert, on: self)
 
 ```swift
 let alert = AlertView(image: nil, title: "Error Occurred", subtitle: "Image failed to download")
-let yesButton = AlertButton.yes { _ in
-    // Do something when Yes is tapped
-}
-let noButton = AlertButton.no { _ in
-    alert.dismiss()
-}
+let yesButton = AlertButton.yes(handler: nil)
+let noButton = AlertButton.no(handler: nil)
 alert.buttons = [noButton, yesButton]
 alert.buttonHeight = 40
 alert.cornerRadius = 20
