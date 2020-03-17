@@ -1,10 +1,10 @@
 import UIKit
 
-typealias ButtonClosure = (AlertButton) -> Void
+typealias ButtonClosure = ((AlertButton) -> Void)?
 
 class ClosureWrapper: NSObject {
     let closure: ButtonClosure
-    init(_ closure: @escaping ButtonClosure) {
+    init(_ closure: ButtonClosure) {
         self.closure = closure
     }
 }
@@ -15,7 +15,7 @@ extension AlertButton {
         static var targetClosure = "targetClosure"
     }
 
-    internal var targetClosure: ButtonClosure? {
+    internal var targetClosure: ButtonClosure {
         get { (objc_getAssociatedObject(self, &AssociatedKeys.targetClosure) as? ClosureWrapper)?.closure }
         set {
             guard let newValue = newValue else { return }
@@ -23,7 +23,7 @@ extension AlertButton {
         }
     }
 
-    func addTargetClosure(closure: @escaping ButtonClosure) {
+    func addTargetClosure(closure: ButtonClosure) {
         targetClosure = closure
         addTarget(self, action: #selector(AlertButton.closureAction), for: .touchUpInside)
         addTarget(self, action: #selector(AlertButton.touchDownAnimation), for: .touchDown)
@@ -33,6 +33,7 @@ extension AlertButton {
         UIView.animate(withDuration: 0.10, delay: 0.10, animations: {
             self.transform = .identity
         })
+        Alert.shared.dismissAlert()
         guard let targetClosure = targetClosure else { return }
         targetClosure(self)
     }

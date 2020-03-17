@@ -24,15 +24,17 @@ internal class ExampleTableViewController: UITableViewController {
         let alert = AlertViewController(image: nil, title: "Error Occurred", subtitle: "Image failed to download.")
         let dismissButton = AlertButton.dismiss(handler: nil)
         alert.buttons = [dismissButton]
+        alert.backgroundColor = .black
         Alert.shared.addAlert(alert, on: self)
     }
 
     private func showRowOneAlert() {
-        let alert = AlertViewController(image: Self.errorImage, title: "Error Occurred", subtitle: "Image failed to download.")
-        let dismissButton = AlertButton.dismiss(handler: nil)
-        alert.buttons = [dismissButton]
-        alert.vibrancyColor = .systemRed
+        let alert = AlertViewController(image: Self.successImage, title: "Success!", subtitle: "Image successfully uploaded!.")
+        let okayButton = AlertButton.okay(handler: nil)
+        alert.buttons = [okayButton]
+        alert.vibrancyColor = .systemGreen
         alert.cornerRadius = 20
+        alert.backgroundColor = .black
         Alert.shared.addAlert(alert, on: self)
     }
 
@@ -48,6 +50,7 @@ internal class ExampleTableViewController: UITableViewController {
         alert.subtitleAlignment = .center
         alert.vibrancyColor = .systemRed
         alert.cornerRadius = 20
+        alert.backgroundColor = .black
         Alert.shared.addAlert(alert, on: self)
     }
 
@@ -72,10 +75,10 @@ internal class ExampleTableViewController: UITableViewController {
     }
 
     private func launchAllAlerts() {
+        showRowThreeAlert()
         showRowZeroAlert()
         showRowOneAlert()
         showRowTwoAlert()
-        showRowThreeAlert()
     }
 
     // MARK: TABLE VIEW DELEGATE AND DATASOURCE:
