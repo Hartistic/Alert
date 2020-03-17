@@ -20,6 +20,8 @@ queued alerts (like UIAlertController does) will show the next one when the firs
 
 <div align = "center">
 <img src="Assets/example.png" width="1000" />
+<img src="Assets/example2.png" width="1000" />
+<img src="Assets/example3.png" width="1000" />
 </div>
 
 ## Usage
