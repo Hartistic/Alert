@@ -13,7 +13,9 @@ public class AlertViewController: UIViewController {
     internal var titleFont = UIFont.preferredFont(forTextStyle: .headline)
     internal var subtitleFont = UIFont.preferredFont(forTextStyle: .subheadline)
     internal var titleColor: UIColor = .white
+    internal var titleAlignment: NSTextAlignment = .left
     internal var subtitleColor: UIColor = .white
+    internal var subtitleAlignment: NSTextAlignment = .left
     internal var backgroundColor: UIColor = .clear
 
     init() {
@@ -43,15 +45,14 @@ public class AlertViewController: UIViewController {
         alertView.subtitleColor = subtitleColor
         alertView.titleFont = titleFont
         alertView.subtitleFont = subtitleFont
+        alertView.queueCount = queueCount
+        alertView.titleAlignment = titleAlignment
+        alertView.subtitleAlignment = subtitleAlignment
         alertView.setButton(height: buttonHeight, cornerRadius: cornerRadius)
         alertView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(alertView)
         alertView.constrainCenterX()
         alertView.constrainCenterY()
         self.view.backgroundColor = backgroundColor
-    }
-
-    public func dismiss() {
-        dismiss(animated: true, completion: nil)
     }
 }

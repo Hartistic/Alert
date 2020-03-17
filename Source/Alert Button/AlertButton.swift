@@ -9,7 +9,7 @@ public class AlertButton: UIButton {
     ///     - color: (UIColor) The background color of the button.
     ///     - cornerRadius: (CGFloat) The corner radius of the button.
     ///     - handler: (escaping ButtonClosure) The action to take when the button is tapped.
-    convenience init(title: String, color: UIColor, cornerRadius: CGFloat? = 0, handler: @escaping ButtonClosure) {
+    convenience init(title: String, color: UIColor, cornerRadius: CGFloat? = 0, handler: ButtonClosure) {
         self.init(frame: .zero)
         setupTitle(title)
         backgroundColor = color
@@ -74,6 +74,14 @@ public class AlertButton: UIButton {
             layer.cornerRadius = newValue
             clipsToBounds = true
         }
+    }
+
+    /// Sets the title text color of the button and handles the highlighted text color.
+    public var textColor: UIColor {
+        get { self.titleLabel?.textColor ?? .white }
+        set {
+            setTitleColor(newValue, for: .normal)
+            setTitleColor(newValue.withAlphaComponent(0.50), for: .highlighted) }
     }
 
     /// The height constraint placed on the button.
