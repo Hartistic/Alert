@@ -15,8 +15,9 @@
 
 Alert is a customizable alert that acts like the native UIAlertController.  
 Alert's layout, styling, and sizing is easy to change.
-The main goal of Alert is to eventually create an alert queue, that instead of canceling
-queued alerts (like UIAlertController does) will show the next one when the first alert is dismissed.
+The main feature of Alert is its queue, that instead of canceling
+other incoming alerts (like UIAlertController does) will show the next one when the first alert is dismissed.
+It does this by showing a small red badge in the upper right hand corner.
 
 <div align = "center">
 <img src="Assets/example.png" width="1000" />
