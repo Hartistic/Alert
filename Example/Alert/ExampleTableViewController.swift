@@ -21,10 +21,9 @@ internal class ExampleTableViewController: UITableViewController {
     }
 
     private func showRowZeroAlert() {
-        let alert = AlertViewController(image: nil, title: "Error Occurred", subtitle: "Image failed to download.")
+        let alert = AlertViewController(image: nil, title: "Error Occurred", subtitle: "Image failed to download.", style: .actionSheet)
         let dismissButton = AlertButton.dismiss(handler: nil)
         alert.buttons = [dismissButton]
-        alert.backgroundColor = .black
         Alert.shared.addAlert(alert, on: self)
     }
 
@@ -34,7 +33,6 @@ internal class ExampleTableViewController: UITableViewController {
         alert.buttons = [okayButton]
         alert.vibrancyColor = .systemGreen
         alert.cornerRadius = 20
-        alert.backgroundColor = .black
         Alert.shared.addAlert(alert, on: self)
     }
 
@@ -44,19 +42,18 @@ internal class ExampleTableViewController: UITableViewController {
         let dismissButton = AlertButton.dismiss(handler: nil)
         alert.buttonLayout = .vertical
         alert.buttons = [retryButton, dismissButton]
-        alert.titleFont = UIFont.boldSystemFont(ofSize: 28)
+        alert.titleFont = .boldSystemFont(ofSize: 28)
         alert.titleAlignment = .center
-        alert.subtitleFont = UIFont.systemFont(ofSize: 20, weight: .light)
+        alert.subtitleFont = .systemFont(ofSize: 20, weight: .light)
         alert.subtitleAlignment = .center
         alert.vibrancyColor = .systemRed
         alert.cornerRadius = 20
-        alert.backgroundColor = .black
         Alert.shared.addAlert(alert, on: self)
     }
 
     private func showRowThreeAlert() {
         let alert = AlertViewController(image: Self.errorImage, title: "Error Occurred",
-                                        subtitle: "Image failed to download. Would you like to continue?")
+                                        subtitle: "Image failed to download. Would you like to continue?", style: .actionSheet)
         let yesButton = AlertButton.yes(handler: nil)
         let noButton = AlertButton.no(handler: nil)
         let dismissButton = AlertButton.dismiss(handler: nil)
@@ -64,13 +61,19 @@ internal class ExampleTableViewController: UITableViewController {
         dismissButton.textColor = .black
         alert.buttonLayout = .vertical
         alert.buttons = [yesButton, noButton, dismissButton]
-        alert.titleFont = UIFont.boldSystemFont(ofSize: 28)
+        alert.titleFont = .boldSystemFont(ofSize: 28)
         alert.titleAlignment = .center
-        alert.subtitleFont = UIFont.systemFont(ofSize: 20, weight: .light)
+        alert.subtitleFont = .systemFont(ofSize: 20, weight: .light)
         alert.subtitleAlignment = .center
         alert.vibrancyColor = .purple
         alert.cornerRadius = 12
-        alert.backgroundColor = .black
+        Alert.shared.addAlert(alert, on: self)
+    }
+
+    private func showRowFourAlert() {
+        let alert = AlertViewController(image: nil, title: "Error occurred", subtitle: nil, style: .actionSheet)
+        let dismissButton = AlertButton.dismiss(handler: nil)
+        alert.buttons = [dismissButton]
         Alert.shared.addAlert(alert, on: self)
     }
 
@@ -79,6 +82,7 @@ internal class ExampleTableViewController: UITableViewController {
         showRowZeroAlert()
         showRowOneAlert()
         showRowTwoAlert()
+        showRowFourAlert()
     }
 
     // MARK: TABLE VIEW DELEGATE AND DATASOURCE:
@@ -88,7 +92,7 @@ internal class ExampleTableViewController: UITableViewController {
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 5
+        return 6
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -109,6 +113,7 @@ internal class ExampleTableViewController: UITableViewController {
                       subtitle: "Image, button corner radius, vibrancy color, title & subtitle font & alignment, vertical buttons",
                       for: cell)
         case 4: setup(title: "Launch All Alerts", subtitle: "4 Alerts Total Queue Test", for: cell)
+        case 5: setup(title: "Simple Action Sheet", subtitle: "", for: cell)
         default: return cell
 
         }
@@ -123,6 +128,7 @@ internal class ExampleTableViewController: UITableViewController {
         case 2: showRowTwoAlert()
         case 3: showRowThreeAlert()
         case 4: launchAllAlerts()
+        case 5: showRowFourAlert()
         default: return
         }
     }

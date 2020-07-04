@@ -21,6 +21,10 @@ public class AlertView: UIView {
     @IBOutlet private var queueLabel: UILabel?
     /// The view that encases the queue label counter.
     @IBOutlet private var queueView: UIView?
+    /// The constraint used to prevent the alert view from becoming wider than it needs to be, for alert types.
+    @IBOutlet internal var widthConstraint: NSLayoutConstraint?
+    /// The constraint used between the contentStackView and the buttonStackView.
+    @IBOutlet internal var stackViewVerticalConstraint: NSLayoutConstraint?
 
     /// Standard default spacing:
     private static let marginSpacing: CGFloat = 30
@@ -51,7 +55,13 @@ public class AlertView: UIView {
             self.image = image
         }
         self.title = title
-        self.subtitle = subtitle
+        if let subtitle = subtitle, !subtitle.isEmpty {
+            self.subtitle = subtitle
+        } else {
+            guard let subtitleLabel = subtitleLabel else { return }
+            contentStackView?.removeArrangedSubview(subtitleLabel)
+            subtitleLabel.removeFromSuperview()
+        }
     }
 
     // MARK: PUBLIC FUNCTIONS:
@@ -132,25 +142,41 @@ public class AlertView: UIView {
     /// The subtitle text for the Alert.
     internal var subtitle: String? {
         get { return subtitleLabel?.text }
-        set { subtitleLabel?.text = newValue}
+        set {
+            if subtitleLabel?.superview != nil {
+                subtitleLabel?.text = newValue
+            }
+        }
     }
 
     /// The subtitle text color for the Alert.
     internal var subtitleColor: UIColor? {
         get { return subtitleLabel?.textColor }
-        set { subtitleLabel?.textColor = newValue }
+        set {
+            if subtitleLabel?.superview != nil {
+                subtitleLabel?.textColor = newValue
+            }
+        }
     }
 
     /// The subtitle text font for the Alert.
     internal var subtitleFont: UIFont? {
         get { return subtitleLabel?.font }
-        set { subtitleLabel?.font = newValue }
+        set {
+            if subtitleLabel?.superview != nil {
+                subtitleLabel?.font = newValue
+            }
+        }
     }
 
     /// The text alignment for the subtitle label.
     internal var subtitleAlignment: NSTextAlignment {
         get { return subtitleLabel?.textAlignment ?? .left }
-        set { subtitleLabel?.textAlignment = newValue }
+        set {
+            if subtitleLabel?.superview != nil {
+                subtitleLabel?.textAlignment = newValue
+            }
+        }
     }
 
     /// The image to set next to the title.
@@ -175,5 +201,12 @@ public class AlertView: UIView {
         self.constrainTrailing(to: view, margin: 40)
         self.constrainCenterY()
         self.constrainCenterX()
+    }
+
+    private func addSubtitleLabelIfNeeded() {
+        guard let subtitleLabel = subtitleLabel else { return }
+        if subtitleLabel.superview == nil {
+            contentStackView?.addArrangedSubview(subtitleLabel)
+        }
     }
 }
