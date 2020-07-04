@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,9 +15,11 @@
                 <outlet property="imageView" destination="yjR-XZ-ycC" id="2wP-VL-kOn"/>
                 <outlet property="queueLabel" destination="NqG-sL-2bW" id="6w6-fB-UQk"/>
                 <outlet property="queueView" destination="eLh-Yd-W6g" id="0mV-bg-zrV"/>
+                <outlet property="stackViewVerticalConstraint" destination="IwW-Fn-6yf" id="8Ah-7q-BPG"/>
                 <outlet property="subtitleLabel" destination="hwl-1k-esL" id="1lU-x4-oiE"/>
                 <outlet property="titleLabel" destination="2Wx-57-ZBr" id="5rz-NP-awZ"/>
                 <outlet property="vibrancyView" destination="EmA-Tv-Rrr" id="C2X-Fq-uuX"/>
+                <outlet property="widthConstraint" destination="xYg-wT-nx8" id="8BP-1Q-mdR"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

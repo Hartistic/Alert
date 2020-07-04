@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		50289B1924B0E2BB0048977F /* AlertType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50289B1824B0E2BB0048977F /* AlertType.swift */; };
 		5068A95B241F162700971673 /* AlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5068A95A241F162700971673 /* AlertViewController.xib */; };
 		5068A95D241F169000971673 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5068A95C241F169000971673 /* AlertViewController.swift */; };
 		5068A95F2420676000971673 /* ExampleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5068A95E2420676000971673 /* ExampleTableViewController.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		50289B1824B0E2BB0048977F /* AlertType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertType.swift; sourceTree = "<group>"; };
 		5068A95A241F162700971673 /* AlertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertViewController.xib; sourceTree = "<group>"; };
 		5068A95C241F169000971673 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 		5068A95E2420676000971673 /* ExampleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleTableViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				50BF9D0E241B194000ED336B /* AlertView.xib */,
 				5068A95A241F162700971673 /* AlertViewController.xib */,
 				5068A95C241F169000971673 /* AlertViewController.swift */,
+				50289B1824B0E2BB0048977F /* AlertType.swift */,
 			);
 			path = "Alert View";
 			sourceTree = "<group>";
@@ -206,6 +209,7 @@
 				50BF9D11241B336700ED336B /* Constraints.swift in Sources */,
 				50BF9D0B241B16C800ED336B /* AlertView.swift in Sources */,
 				507E27BC241DAAD1009B8A92 /* AlertButtonTypes.swift in Sources */,
+				50289B1924B0E2BB0048977F /* AlertType.swift in Sources */,
 				5068A95D241F169000971673 /* AlertViewController.swift in Sources */,
 				507E27B8241C8EFB009B8A92 /* AlertActionButton.swift in Sources */,
 				50BF9CF5241B163900ED336B /* AppDelegate.swift in Sources */,

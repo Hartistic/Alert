@@ -20,6 +20,10 @@ public class Alert {
         if pendingAlertViews.contains(alertView) {
             return
         }
+        if alertView.buttons.count == 0 {
+            print("Error: Trying to add an alert with no buttons defined to dismiss.  Please add at least one.")
+            return
+        }
         currentViewController = viewController
         pendingAlertViews.append(alertView)
         alertObserver.post(value: true)
