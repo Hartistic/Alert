@@ -27,6 +27,8 @@ It does this by showing a small red badge in the upper right hand corner.
 
 ## Usage
 
+Download the example project from this repo to see how simple Alert is to use.  
+
 - Simple Alert
 
 ```swift
